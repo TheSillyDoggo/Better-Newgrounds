@@ -1,0 +1,24 @@
+{
+	"geode": "3.0.0-beta.1",
+	"gd": {
+		"win": "2.206"
+	},
+	"version": "v1.0.0",
+	"id": "thesillydoggo.newgrounds_explorer",
+	"name": "Newgrounds Explorer",
+	"developer": "TheSillyDoggo",
+	"description": "Newgrounds Explorer",
+	"resources": {
+		"sprites": [
+			"resources/*.png"
+		]
+	},
+	"dependencies": [
+		{
+			"id": "geode.node-ids",
+			"importance": "required",
+			"required": true,
+			"version": "*"
+		}
+	]
+}
