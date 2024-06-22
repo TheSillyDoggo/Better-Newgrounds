@@ -319,7 +319,7 @@ void NewgroundsSongPopup::addWidget()
         waveParent->setColor(ccc3(0, 0, 0));
         waveParent->setContentSize(ccp(170, 50));
 
-        if (MusicDownloadManager::sharedState()->isSongDownloaded(utils::numFromString<int>(id).unwrapOr(0)) || buttonsMenuInstalling->isVisible())
+        if (MusicDownloadManager::sharedState()->isSongDownloaded(utils::numFromString<int>(id).unwrapOr(0)) || (buttonsMenuInstalling && buttonsMenuInstalling->isVisible()))
         {
             auto x = MusicDownloadManager::sharedState()->pathForSong(utils::numFromString<int>(id).unwrapOr(0));
 
@@ -407,7 +407,7 @@ void NewgroundsSongPopup::updateProgress(float)
     {
         if (FMODAudioEngine::sharedEngine()->isMusicPlaying(0) && songLength != 0 && currentSong == id)
         {
-            clip->setContentWidth(170 * ((FMODAudioEngine::sharedEngine()->getMusicTimeMS(0) / 1000) / songLength));
+            clip->setContentWidth(170.0f * ((FMODAudioEngine::sharedEngine()->getMusicTimeMS(0) / 1000.0f) / songLength));
         }
         else
         {

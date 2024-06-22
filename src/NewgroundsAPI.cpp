@@ -403,9 +403,9 @@ void API::getArtistSongs(std::string name, int page, SEL_MenuHandler event, CCOb
             {
                 auto year = item.second.as_array();
 
-                for (auto song : year)
+                for (auto song2 : year)
                 {
-                    auto str = song.as_string();
+                    auto str = song2.as_string();
 
                     tinyxml2::XMLDocument doc;
                     auto result = doc.Parse(str.c_str());
