@@ -31,9 +31,15 @@ void AudioWaveformNode::generateSampleData()
 {
     auto engine = FMODAudioEngine::sharedEngine();
 
+    if (!engine || !engine->m_system)
+        return;
+
     FMOD::Sound* sound;
     const FMOD_MODE mode = FMOD_DEFAULT | FMOD_CREATESAMPLE | FMOD_OPENONLY;
     engine->m_system->createSound(file.c_str(), mode, nullptr, &sound);
+
+    if (!sound)
+        return;
 
     FMOD_SOUND_FORMAT format;
     int channels;

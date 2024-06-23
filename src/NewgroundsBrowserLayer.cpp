@@ -295,6 +295,8 @@ void NewgroundsBrowserLayer::updatePageLabel()
 
 void NewgroundsBrowserLayer::onBack(CCObject*)
 {
+    NewgroundsSongPopup::currentSong = "";
+
     CCDirector::get()->popSceneWithTransition(0.5f, PopTransition::kPopTransitionFade);
 }
 

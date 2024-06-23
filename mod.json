@@ -1,9 +1,11 @@
 {
 	"geode": "3.0.0-beta.1",
 	"gd": {
-		"win": "2.206"
+		"win": "2.206",
+		"android": "2.206",
+		"mac": "2.206"
 	},
-	"version": "v1.0.0",
+	"version": "v1.0.0-beta.1",
 	"id": "thesillydoggo.newgrounds_explorer",
 	"name": "Newgrounds Explorer",
 	"developer": "TheSillyDoggo",
@@ -18,7 +20,12 @@
 			"id": "geode.node-ids",
 			"importance": "required",
 			"required": true,
-			"version": "*"
+			"version": ">=1.12.0"
 		}
+	],
+	"tags": [
+		"content",
+		"enhancement",
+		"music"
 	]
 }

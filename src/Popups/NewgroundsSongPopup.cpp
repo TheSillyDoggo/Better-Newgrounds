@@ -312,14 +312,15 @@ void NewgroundsSongPopup::addWidget()
         auto playMenu = CCMenu::create();
         playMenu->setScale(0.8f);
         playMenu->setAnchorPoint(ccp(0, 0));
-        playMenu->addChild(widger->m_playbackBtn);
+        //playMenu->addChild(widger->m_playbackBtn);
         widger->m_playbackBtn->setPosition(ccp(0, 0));
 
         waveParent = CCScale9Sprite::create("pixel.png");
         waveParent->setColor(ccc3(0, 0, 0));
         waveParent->setContentSize(ccp(170, 50));
 
-        if (MusicDownloadManager::sharedState()->isSongDownloaded(utils::numFromString<int>(id).unwrapOr(0)) || (buttonsMenuInstalling && buttonsMenuInstalling->isVisible()))
+        //if (MusicDownloadManager::sharedState()->isSongDownloaded(utils::numFromString<int>(id).unwrapOr(0)) || (buttonsMenuInstalling && buttonsMenuInstalling->isVisible()))
+        if (false)
         {
             auto x = MusicDownloadManager::sharedState()->pathForSong(utils::numFromString<int>(id).unwrapOr(0));
 
@@ -343,7 +344,7 @@ void NewgroundsSongPopup::addWidget()
         }
         else
         {
-            auto label = CCLabelBMFont::create("Download the song\nto play", "bigFont.fnt");
+            auto label = CCLabelBMFont::create("Playing songs is not\nyet supported.", "bigFont.fnt");
             label->setScale(0.4f);
             label->setAlignment(CCTextAlignment::kCCTextAlignmentCenter);
             waveParent->addChildAtPosition(label, Anchor::Center);
@@ -403,7 +404,7 @@ void NewgroundsSongPopup::waitForSongDownloadFinish(float)
 
 void NewgroundsSongPopup::updateProgress(float)
 {
-    if (widger && clip)
+    /*if (widger && clip)
     {
         if (FMODAudioEngine::sharedEngine()->isMusicPlaying(0) && songLength != 0 && currentSong == id)
         {
@@ -413,7 +414,7 @@ void NewgroundsSongPopup::updateProgress(float)
         {
             clip->setContentWidth(0);
         }
-    }
+    }*/
 }
 
 void NewgroundsSongPopup::onAuthor(CCObject*)
@@ -421,7 +422,7 @@ void NewgroundsSongPopup::onAuthor(CCObject*)
     NewgroundsArtistPopup::create(API::get()->getSong(id).author)->show();
 }
 
-class $modify (CustomSongWidget)
+/*class $modify (CustomSongWidget)
 {
     void onPlayback(CCObject* sender)
     {
@@ -432,4 +433,4 @@ class $modify (CustomSongWidget)
             NewgroundsSongPopup::currentSong = (cocos::isSpriteFrameName(m_playbackBtn->getNormalImage(), "GJ_playMusicBtn_001.png")) ? "" : fmt::format("{}", m_songInfoObject->m_songID);
         }
     }
-};
+};*/
