@@ -363,10 +363,14 @@ void NewgroundsBrowserLayer::onSwitchTab(CCObject* sender)
             as<CCMenuItemToggler*>(sender)->toggle(false);
         });
 
+        #ifdef GEODE_IS_MACOS
+        FLAlertLayer::create("Newgrounds Explorer", "The search tab is <cl>Coming Soon!</c>", "OK")->show();
+        #else
         auto layer = DialogLayer::createDialogLayer(DialogObject::create("The Shopkeeper", "The search tab is <cl>Coming Soon!</c>", 5, 1, false, ccc3(255, 255, 255)), nullptr, 2);
         layer->animateInRandomSide();
 
         CCScene::get()->addChild(layer, 420);
+        #endif
         return;
     }
 
