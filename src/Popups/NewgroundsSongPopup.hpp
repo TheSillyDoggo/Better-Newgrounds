@@ -11,7 +11,7 @@
 
 using namespace geode::prelude;
 
-class NewgroundsSongPopup : public FLAlertLayer, public CustomSongDelegate
+class NewgroundsSongPopup : public FLAlertLayer
 {
     public:
         std::string id;
