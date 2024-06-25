@@ -31,7 +31,7 @@ void AudioWaveformNode::generateSampleData()
 {
     auto engine = FMODAudioEngine::sharedEngine();
 
-    if (!engine || !engine->m_system)
+    if (!engine || !engine->m_system || !engine->m_sound)
         return;
 
     FMOD::Sound* sound;

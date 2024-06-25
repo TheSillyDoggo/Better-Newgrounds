@@ -19,7 +19,6 @@
 		{
 			"id": "geode.node-ids",
 			"importance": "required",
-			"required": true,
 			"version": ">=1.12.0"
 		}
 	],
