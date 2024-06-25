@@ -31,11 +31,11 @@ bool NewgroundsBrowserLayer::init(std::string user)
     this->setKeypadEnabled(true);
 
     auto bg = CCSprite::create("background.png"_spr);
-    bg->setScale(CCDirector::get()->getWinSize().height / bg->getContentHeight());
+    bg->setScale(CCDirector::get()->getWinSize().width > CCDirector::get()->getWinSize().height ? (CCDirector::get()->getWinSize().width / bg->getContentWidth()) : (CCDirector::get()->getWinSize().height / bg->getContentHeight()));
     bg->setPosition(CCDirector::get()->getWinSize() / 2);
 
     auto bgBlur = CCSprite::create("background-blur.png"_spr);
-    bgBlur->setScale(CCDirector::get()->getWinSize().height / bg->getContentHeight());
+    bgBlur->setScale(CCDirector::get()->getWinSize().width > CCDirector::get()->getWinSize().height ? (CCDirector::get()->getWinSize().width / bg->getContentWidth()) : (CCDirector::get()->getWinSize().height / bg->getContentHeight()));
 
     auto backMenu = CCMenu::create();
     backMenu->setPosition(ccp(24, CCDirector::get()->getWinSize().height - 23));
