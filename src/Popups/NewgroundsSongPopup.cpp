@@ -288,7 +288,7 @@ void NewgroundsSongPopup::addWidget()
 
     auto object = MusicDownloadManager::sharedState()->getSongInfoObject(utils::numFromString<int>(id).unwrapOr(0));
 
-    widger = CustomSongWidget::create(object, this, false, true, true, false, false, false, 0);
+    widger = CustomSongWidget::create(object, nullptr, false, true, true, false, false, false, 0);
     widger->setVisible(false);
     widger->setID(""_spr);
     this->addChild(widger);
